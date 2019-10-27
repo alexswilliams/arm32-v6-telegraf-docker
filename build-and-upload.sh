@@ -32,6 +32,7 @@ function buildAndPush {
 # buildAndPush "1.12.0"
 # buildAndPush "1.12.1"
 # buildAndPush "1.12.2"
-buildAndPush "1.12.3" latest
+buildAndPush "1.12.3"
+buildAndPush "1.12.4" latest
 
 curl -X POST "https://hooks.microbadger.com/images/alexswilliams/arm32v6-telegraf/Ne64Ci-WBl59zFoSY3QY7WpuDkk="
