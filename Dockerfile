@@ -4,18 +4,7 @@ FROM arm32v6/alpine:3.11.5
 
 
 ARG VERSION
-ARG VCS_REF
-ARG BUILD_DATE
 ENV TELEGRAF_VERSION $VERSION
-
-LABEL org.label-schema.build-date=$BUILD_DATE \
-      org.label-schema.name="Telegraf (arm32v6)" \
-      org.label-schema.description="Telegraf - Repackaged for ARM32v6" \
-      org.label-schema.url="https://www.influxdata.com/time-series-platform/telegraf/" \
-      org.label-schema.vcs-ref=$VCS_REF \
-      org.label-schema.vcs-url="https://github.com/alexswilliams/arm32-v6-telegraf-docker" \
-      org.label-schema.version=$VERSION \
-      org.label-schema.schema-version="1.0"
 
 RUN set -ex && \
     echo 'hosts: files dns' >> /etc/nsswitch.conf && \
@@ -36,3 +25,15 @@ EXPOSE 8125/udp 8092/udp 8094
 COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["telegraf"]
+
+
+ARG VCS_REF
+ARG BUILD_DATE
+LABEL org.label-schema.build-date=$BUILD_DATE \
+      org.label-schema.name="Telegraf (arm32v6)" \
+      org.label-schema.description="Telegraf - Repackaged for ARM32v6" \
+      org.label-schema.url="https://www.influxdata.com/time-series-platform/telegraf/" \
+      org.label-schema.vcs-ref=$VCS_REF \
+      org.label-schema.vcs-url="https://github.com/alexswilliams/arm32-v6-telegraf-docker" \
+      org.label-schema.version=$VERSION \
+      org.label-schema.schema-version="1.0"
