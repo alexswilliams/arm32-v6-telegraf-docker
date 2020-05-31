@@ -1,4 +1,4 @@
-FROM arm32v6/alpine:3.11.5
+FROM arm32v6/alpine:3.12.0
 # Updated here: https://hub.docker.com/r/arm32v6/alpine/tags
 # Inspired by https://github.com/influxdata/influxdata-docker/blob/master/telegraf/1.14/alpine/Dockerfile
 
