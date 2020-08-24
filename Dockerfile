@@ -14,9 +14,10 @@ RUN set -ex && \
     wget --no-verbose https://dl.influxdata.com/telegraf/releases/telegraf-${TELEGRAF_VERSION}_linux_armhf.tar.gz && \
     mkdir -p /usr/src /etc/telegraf && \
     tar -C /usr/src -xvzf telegraf-${TELEGRAF_VERSION}_linux_armhf.tar.gz && \
-    mv /usr/src/telegraf/etc/telegraf/telegraf.conf /etc/telegraf/ && \
-    chmod +x /usr/src/telegraf/usr/bin/telegraf && \
-    cp -a /usr/src/telegraf/usr/bin/telegraf /usr/bin/ && \
+    mv /usr/src/telegraf*/etc/telegraf/telegraf.conf /etc/telegraf/ && \
+    mkdir /etc/telegraf/telegraf.d && \
+    chmod +x /usr/src/telegraf*/usr/bin/telegraf && \
+    cp -a /usr/src/telegraf*/usr/bin/telegraf /usr/bin/ && \
     rm -rf *.tar.gz* /usr/src && \
     apk del .build-deps
 
